@@ -1,3 +1,8 @@
+Notes on Aron's mods
+====================
+
+I am not a Haskell programmer or a web developer.  Please don't take any commits in this repository very seriously.
+
 Gitit
 =====
 
