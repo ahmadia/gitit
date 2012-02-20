@@ -519,7 +519,7 @@ editPage' params = do
   let editForm = gui (base' ++ urlForPage page) ! [identifier "editform"] <<
                    [ sha1Box
                    , thediv ! [ identifier "wmd-button-bar" ] << noHtml
-                   , textarea ! (readonly ++ [cols "80", name "wmd-input",
+                   , textarea ! (readonly ++ [cols "80", rows "40", name "editedText",
                                   identifier "wmd-input"]) << raw
                    , br
                    , label << "Description of changes:"
