@@ -518,8 +518,9 @@ editPage' params = do
   cfg <- getConfig
   let editForm = gui (base' ++ urlForPage page) ! [identifier "editform"] <<
                    [ sha1Box
-                   , textarea ! (readonly ++ [cols "80", name "editedText",
-                                  identifier "editedText"]) << raw
+                   , thediv ! [ identifier "wmd-button-bar" ] << noHtml
+                   , textarea ! (readonly ++ [cols "80", name "wmd-input",
+                                  identifier "wmd-input"]) << raw
                    , br
                    , label << "Description of changes:"
                    , br
@@ -533,9 +534,8 @@ editPage' params = do
                               strAttr "onClick" "updatePreviewPane();",
                               strAttr "style" "display: none;",
                               value "Preview" ]
-                   , thediv ! [ identifier "previewpane" ] << noHtml
                    ]
-  let pgScripts' = ["preview.js"]
+  let pgScripts' = ["preview.js","pagedown/Markdown.Converter.js","pagedown/Markdown.Sanitizer.js","pagedown/Markdown.Editor.js","mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full","pagedown.js"]
   let pgScripts'' = case mathMethod cfg of
        JsMathScript -> "jsMath/easy/load.js" : pgScripts'
        MathML       -> "MathMLinHTML.js" : pgScripts'

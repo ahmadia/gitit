@@ -130,7 +130,7 @@ extractConfig cp = do
         , mathMethod           = case map toLower cfMathMethod of
                                       "jsmath"   -> JsMathScript
                                       "mathml"   -> MathML
-                                      "mathjax"  -> MathJax "https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+                                      "mathjax"  -> MathJax "mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"
                                       "google"   -> WebTeX "http://chart.apis.google.com/chart?cht=tx&chl="
                                       _          -> RawTeX
         , defaultLHS           = lhs
